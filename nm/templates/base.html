@@ -1,100 +1,60 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Painel de Administração</title>
-    {% block styles %}
-    {{ bootstrap.load_css() }}
-    <style>
-        body {
-            font-size: 0.875rem;
-        }
-        .sidebar {
-            position: fixed;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            z-index: 100;
-            padding: 48px 0 0;
-            box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
-        }
-        .sidebar-sticky {
-            position: relative;
-            top: 0;
-            height: calc(100vh - 48px);
-            padding-top: .5rem;
-            overflow-x: hidden;
-            overflow-y: auto;
-        }
-    </style>
-    {% endblock %}
+    <title>AdminLTE Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    {% block styles %}{% endblock %}
 </head>
 <body>
-  <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-      <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">Admin</a>
-      <button class="navbar-toggler d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-      </button>
-      <ul class="navbar-nav px-3">
-          <li class="nav-item text-nowrap">
-              <a class="nav-link" href="#">Sign out</a>
-          </li>
-      </ul>
-  </nav>
   <div class="container-fluid">
     <div class="row">
-      <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
-          <div class="position-sticky sidebar-sticky">
-              <ul class="nav flex-column">
-                  <li class="nav-item">
-                      <a class="nav-link active" aria-current="page" href="#">
-                          <i class="fas fa-home"></i>
-                          Dashboard
-                      </a>
-                  </li>
-                  <li class="nav-item">
-                      <a class="nav-link" href="#">
-                          <i class="fas fa-file-alt"></i>
-                          Orders
-                      </a>
-                  </li>
-                  <li class="nav-item">
-                      <a class="nav-link" href="#">
-                          <i class="fas fa-shopping-cart"></i>
-                          Products
-                      </a>
-                  </li>
-                  <li class="nav-item">
-                      <a class="nav-link" href="#">
-                          <i class="fas fa-users"></i>
-                          Customers
-                      </a>
-                  </li>
-                  <li class="nav-item">
-                      <a class="nav-link" href="#">
-                          <i class="fas fa-chart-bar"></i>
-                          Reports
-                      </a>
-                  </li>
-                  <li class="nav-item">
-                      <a class="nav-link" href="#">
-                          <i class="fas fa-layer-group"></i>
-                          Integrations
-                      </a>
-                  </li>
-              </ul>
-          </div>
-      </nav>
+      <div class="col-md-2 sidebar">
+        <div class="user">
+          <img src="https://via.placeholder.com/50" alt="User Profile" class="rounded-circle">
+          <p class="mt-2">Alexander Pierce</p>
+          <p class="text-muted">Online</p>
+        </div>
+        <hr>
+        <ul>
+          <li><a href="#"><i class="fas fa-tachometer-alt icon"></i> Painel</a></li>
+          <li><a href="#"><i class="fas fa-file-alt icon"></i> Cotistas</a></li>
+          <li><a href="#"><i class="fas fa-chart-line icon"></i> Relatórios</a></li>
+          <li><a href="#"><i class="fas fa-calendar-alt icon"></i> Fechamento</a></li>
+          <li><a href="#"><i class="fas fa-cogs icon"></i> Opções</a></li>
+          <!--
+          <li><a href="#"><i class="fas fa-chart-bar icon"></i> Dashboard v1</a></li>
+          <li><a href="#"><i class="fas fa-chart-pie icon"></i> Dashboard v2</a></li>
+          <li><a href="#"><i class="fas fa-th-list icon"></i> Layout Options</a></li>
+          <li><a href="#"><i class="fas fa-list-ul icon"></i> UI Elements</a></li>
+          <li><a href="#"><i class="fas fa-table icon"></i> Tables</a></li>
+          <li><a href="#"><i class="fas fa-envelope icon"></i> Mailbox</a></li>
+          <li><a href="#"><i class="fas fa-folder-open icon"></i> Examples</a></li>
+          <li><a href="#"><i class="fas fa-sitemap icon"></i> Multilevel</a></li>
+          -->
+        </ul>
+      </div>
 
-  <!-- Conteúdo da página aqui -->
-  {% block content %}
-  {% endblock %}
+        {% block content %}{% endblock %}
     </div>
   </div>
+</div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    {% block script2 %}{% endblock %}
+    
 
-    {% block scripts %}
-    {{ bootstrap.load_js() }}
-    {% endblock %}
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    {% block script %}{% endblock %}
+    
 </body>
 </html>

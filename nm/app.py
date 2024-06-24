@@ -1,4 +1,5 @@
 import admin
+import users
 
 
 import model
@@ -16,6 +17,7 @@ app.secret_key = b'guerra aos senhores'
 
 
 admin.configure(app)
+users.configure(app)
 db.configure(app)
 
 Bootstrap4(app)
