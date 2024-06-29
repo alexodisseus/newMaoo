@@ -8,14 +8,21 @@ from flask import render_template, redirect, request, url_for
 from flask_login import login_required
 from jinja2 import TemplateNotFound
 
-from apps.cotistas.models import Cotistas , add_cotista , list_all_cotistas
+from apps.cotistas.models import Cotistas , add_cotista , list_all_cotistas , view_id_cotistas
 
 
 @blueprint.route('/')
 #@login_required
 def index():
     data = list_all_cotistas()
-    return render_template('cotistas/home-calendar.html' , data=data)
+    return render_template('cotistas/index.html' , data=data)
+
+
+@blueprint.route('/ver/<id>')
+#@login_required
+def view(id):
+    cotista = view_id_cotistas(id)
+    return render_template('cotistas/view.html' , cotista=cotista)
 
 
 @blueprint.route('/cadastrar')

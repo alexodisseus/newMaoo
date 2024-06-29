@@ -60,3 +60,12 @@ def list_all_cotistas():
     except Exception as e:
         print(f"Erro ao listar cotistas: {e}")
         return []
+
+def view_id_cotistas(id):
+    try:
+        # Busca o cotista pelo ID
+        cotista = Cotistas.query.get(id)
+        return cotista
+    except Exception as e:
+        print(f"Erro ao buscar cotista por ID: {e}")
+        return None
