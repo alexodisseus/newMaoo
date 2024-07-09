@@ -77,11 +77,38 @@ def list_all_cotistas():
         print(f"Erro ao listar cotistas: {e}")
         return []
 
-def view_id_cotistas(id):
+def view_id_cotistas(id: int) -> dict:
     try:
         # Busca o cotista pelo ID
         cotista = Cotistas.query.get(id)
-        return cotista
+        if cotista:
+            # Cria uma lista de endereços associados ao cotista
+            enderecos = [
+                {
+                    'street': endereco.street,
+                    'number': endereco.number,
+                    'city': endereco.city,
+                    'state': endereco.state,
+                    'cep': endereco.cep
+                } for endereco in cotista.enderecos
+            ]
+            # Retorna um dicionário com as informações do cotista e seus endereços
+            return {
+                'id': cotista.id,
+                'name': cotista.name,
+                'email': cotista.email,
+                'cpf': cotista.cpf,
+                'birth': cotista.birth,
+                'telephone': cotista.telephone,
+                'cell': cotista.cell,
+                'active': cotista.active,
+                'code': cotista.code,
+                'income_tax': cotista.income_tax,
+                'enderecos': enderecos
+            }
+        else:
+            print(f"Nenhum cotista encontrado com ID: {id}")
+            return None
     except Exception as e:
         print(f"Erro ao buscar cotista por ID: {e}")
         return None
