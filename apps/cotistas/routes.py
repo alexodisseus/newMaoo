@@ -8,7 +8,7 @@ from flask import render_template, redirect, request, url_for
 from flask_login import login_required
 from jinja2 import TemplateNotFound
 
-from apps.cotistas.models import Cotistas , add_cotista , list_all_cotistas , view_id_cotistas , add_endereco
+from apps.cotistas.models import Cotistas , add_cotista , list_all_cotistas , view_id_cotistas , add_endereco , add_conta
 
 
 @blueprint.route('/')
@@ -47,7 +47,31 @@ def create():
 #@login_required
 def create_endereco():
     
-    add_endereco(cotistas_id=1, street="Rua ABC", number="123", city="São Paulo", state="SP", cep="12345-678")
+    add_endereco(
+    cotistas_id=2,
+    street="Rua Nova",
+    number="456",
+    city="Rio de Janeiro",
+    state="RJ",
+    cep="23456-789"
+    )
+
+    
+    return render_template('home/calendar.html')
+
+
+@blueprint.route('/cadastrar_conta')
+#@login_required
+def create_conta():
+    
+    add_conta(
+    cotistas_id=1,
+    bank="Banco do Brasil",
+        number_bank="001",
+        agency="200",
+        number_account="2038-1",
+        adress="avenida nove de julho"
+    )
 
     
     return render_template('home/calendar.html')
