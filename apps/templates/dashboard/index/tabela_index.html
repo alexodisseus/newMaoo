@@ -1,0 +1,45 @@
+<div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Usuario Cadastrados no sistema </h3>
+
+                <div class="card-tools">
+                  <div class="input-group input-group-sm" style="width: 100%;">
+                    <input type="text" name="table_search"  class="form-control float-right" placeholder="Buscar..">
+
+                    <div class="input-group-append">
+                      <button type="submit" class="btn btn-default">
+                        <i class="fas fa-search"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+<div class="table-responsive">
+  <table class="table m-0">
+    <thead>
+    <tr>
+      <th>Order ID</th>
+      <th>Item</th>
+      <th>Status</th>
+      <th>Popularity</th>
+    </tr>
+    </thead>
+    <tbody>
+    
+    {%for x in data:%}
+      
+    <tr>
+      <td><a href="pages/examples/invoice.html">{{x}}</a></td>
+      <td>{{x}}</td>
+      <td><span class="badge badge-warning">{{x}}</span></td>
+      <td><a href="{{url_for('cotistas_blueprint.view', id=x.id)}}" class="btn-sm bg-primary">Ver</a></td>
+    </tr>
+    {%endfor%}
+    
+    </tbody>
+  </table>
+</div>
+</div>
+</div>
