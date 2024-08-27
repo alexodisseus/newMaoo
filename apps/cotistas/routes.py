@@ -22,6 +22,7 @@ def index():
 #@login_required
 def view(id):
     cotista = view_id_cotistas(id)
+    print(cotista)
     return render_template('cotistas/view.html' , cotista=cotista)
 
 

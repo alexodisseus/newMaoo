@@ -1,0 +1,87 @@
+<div class="row">
+  <!-- Coluna de Dados -->
+  <div class="col-md-4">
+    <div class="card">
+      <div class="card-header d-flex align-items-center">
+        <h3 class="card-title mb-0">
+          <i class="fas fa-user"></i>
+          Dados
+        </h3>
+        <i class="fas fa-edit ml-auto cursor-pointer" style="font-size: 1.2rem;" data-toggle="tooltip" data-placement="top" title="Editar" aria-label="Editar"></i>
+      </div>
+      <!-- /.card-header -->
+      <div class="card-body">
+        <ul class="list-unstyled">
+          <li>Nome: {{ cotista.name }}</li>
+          <li>Email: {{ cotista.email }}</li>
+          <li>CPF: {{ cotista.cpf }}</li>
+          <li>Data de Nascimento: {{ cotista.birth }}</li>
+          <li>Telefone: {{ cotista.telephone }}</li>
+          <li>Celular: {{ cotista.cell }}</li>
+          <li>Ativo: {% if cotista.active %}Sim{% else %}Não{% endif %}</li>
+          <li>Código: {{ cotista.code }}</li>
+          <li>Imposto de Renda: {% if cotista.income_tax %}Sim{% else %}Não{% endif %}</li>
+        </ul>
+      </div>
+      <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+  </div>
+  <!-- ./col -->
+
+  <!-- Coluna de Endereço -->
+  <div class="col-md-4">
+    <div class="card">
+      <div class="card-header d-flex align-items-center">
+        <h3 class="card-title mb-0">
+          <i class="fas fa-map-marker-alt"></i>
+          Endereço
+        </h3>
+        <i class="fas fa-edit ml-auto cursor-pointer" style="font-size: 1.2rem;" data-toggle="tooltip" data-placement="top" title="Editar" aria-label="Editar"></i>
+      </div>
+      <!-- /.card-header -->
+      <div class="card-body">
+        <ul class="list-unstyled">
+          {% for endereco in cotista.enderecos %}
+            <li>Rua: {{ endereco.street }}</li>
+            <li>Número: {{ endereco.number }}</li>
+            <li>Cidade: {{ endereco.city }}</li>
+            <li>Estado: {{ endereco.state }}</li>
+            <li>CEP: {{ endereco.cep }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+      <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+  </div>
+  <!-- ./col -->
+
+  <!-- Coluna de Contas -->
+  <div class="col-md-4">
+    <div class="card">
+      <div class="card-header d-flex align-items-center">
+        <h3 class="card-title mb-0">
+          <i class="fas fa-credit-card"></i>
+          Contas
+        </h3>
+        <i class="fas fa-edit ml-auto cursor-pointer" style="font-size: 1.2rem;" data-toggle="tooltip" data-placement="top" title="Editar" aria-label="Editar"></i>
+      </div>
+      <!-- /.card-header -->
+      <div class="card-body">
+        <ul class="list-unstyled">
+          {% for conta in cotista.contas %}
+            <li>Banco: {{ conta.bank }}</li>
+            <li>Agência: {{ conta.agency }}</li>
+            <li>Conta: {{ conta.number_account }}</li>
+            <li>Endereço: {{ conta.adress }}</li>
+            <li>Número do Banco: {{ conta.number_bank }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+      <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+  </div>
+  <!-- ./col -->
+</div>
